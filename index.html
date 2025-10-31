@@ -273,5 +273,17 @@ details summary {
   <footer>
     <p>Made with ☕ + creativity by Paulami Chakraborty</p>
   </footer>
+  <script>
+function showStory(id, el) {
+  // deactivate all milestones
+  document.querySelectorAll('.milestone').forEach(btn => btn.classList.remove('active'));
+  // activate current tab
+  el.classList.add('active');
+  // hide all stories
+  document.querySelectorAll('.story').forEach(s => s.classList.remove('active'));
+  // show chosen story
+  document.getElementById(id).classList.add('active');
+}
+</script>
 </body>
 </html>
