@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Paulami Chakraborty — Interactive CV</title>
@@ -132,17 +133,50 @@
   transform: translateY(-4px);
 }
 .milestone.active {
-  background: #3b6ea5;
-  color: white;
+  background: linear-gradient(120deg, #3b6ea5, #5aa9e6);
+  color: #fff;
+  transform: scale(1.08);
+  box-shadow: 0 6px 18px rgba(91, 146, 218, 0.3);
 }
-
-/* Story display */
+    /* Smooth story transitions */
+    #story-area {
+  position: relative;
+  min-height: 400px;
+}
 .story {
-  display: none;
-  animation: fadeIn 0.5s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 .story.active {
-  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  position: relative;
+}
+
+
+/* Story display */
+#story-area {
+  position: relative;
+  min-height: 400px;
+}
+.story {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.story.active {
+  opacity: 1;
+  transform: translateY(0);
+  position: relative;
 }
 .story-inner {
   display: flex;
@@ -196,6 +230,9 @@ details summary {
 <section id="career-stories">
   <h2>Career Milestones</h2>
   <p class="section-subtext">Scroll or tap a milestone to see the story unfold.</p>
+  <div class="progress-bar">
+  <div class="progress"></div>
+</div>
 
   <!-- Horizontal scroll of milestones -->
   <div class="milestone-scroll">
@@ -216,13 +253,15 @@ details summary {
   <!-- Story Display Area -->
   <div id="story-area">
     <div id="dream11" class="story active">
-      <div class="story-inner">
+      <div class="story-inner" data-aos="fade-up">
         <img src="assets/dream11-full.jpg" alt="Dream11 Case Study">
         <div class="story-text">
           <h3>Dream11: Feature Adoption Campaign</h3>
           <p><strong>Objective:</strong> Drive retention and DAU by promoting new in-app features.</p>
           <p><strong>Approach:</strong> Designed a gamified communication strategy blending product copy and behavior-based triggers. Collaborated with analytics to identify feature adoption lag and repositioned copy tone from “instructional” to “competitive.”</p>
-          <p><strong>Result:</strong> +25% DAU uplift and higher engagement within 3 months.</p>
+          <p><strong>Result:</strong>
+          <span class="counter" data-target="25">0</span>% DAU uplift and higher engagement within 3 months.
+          </p>
           <details>
             <summary>My Thought Process 💭</summary>
             <p>Users were skipping the new feature tutorials. By reframing the communication around “challenges” rather than “how-tos,” we tapped into the competitive spirit of Dream11 users.</p>
@@ -232,13 +271,15 @@ details summary {
     </div>
 
     <div id="zee5" class="story">
-      <div class="story-inner">
+      <div class="story-inner" data-aos="fade-up">
         <img src="assets/zee5-full.jpg" alt="ZEE5 Campaign">
         <div class="story-text">
           <h3>ZEE5: Re-engagement Push</h3>
           <p><strong>Objective:</strong> Win back dormant users and reduce churn post-content binge.</p>
           <p><strong>Strategy:</strong> Introduced personalized “What’s Next” content journeys using micro-segmentation and trigger-based communication. Optimized app notifications for timing and tone consistency.</p>
-          <p><strong>Result:</strong> 18% improvement in return sessions and longer average watch durations.</p>
+          <p><strong>Result:</strong>
+          <span class="counter" data-target="18">0</span>% improvement in return sessions and longer average watch durations.
+          </p>
           <details>
             <summary>My Thought Process 💭</summary>
             <p>Viewership was peaking on weekends. By mapping reactivation comms to mid-week content drops, we created anticipation and consistency in user behavior.</p>
@@ -248,7 +289,7 @@ details summary {
     </div>
 
     <div id="sports" class="story">
-      <div class="story-inner">
+      <div class="story-inner" data-aos="fade-up">
         <img src="assets/sportsinteractive-full.jpg" alt="Sports Interactive Campaign">
         <div class="story-text">
           <h3>Sports Interactive: Analytics Storytelling</h3>
@@ -273,17 +314,60 @@ details summary {
   <footer>
     <p>Made with ☕ + creativity by Paulami Chakraborty</p>
   </footer>
-  <script>
+ <script>
 function showStory(id, el) {
+  const milestones = document.querySelectorAll('.milestone');
   // deactivate all milestones
-  document.querySelectorAll('.milestone').forEach(btn => btn.classList.remove('active'));
+  milestones.forEach(btn => btn.classList.remove('active'));
   // activate current tab
   el.classList.add('active');
-  // hide all stories
-  document.querySelectorAll('.story').forEach(s => s.classList.remove('active'));
-  // show chosen story
-  document.getElementById(id).classList.add('active');
+
+  // update progress bar
+  const index = Array.from(milestones).indexOf(el);
+  const progress = ((index + 1) / milestones.length) * 100;
+  const progressBar = document.querySelector('.progress');
+  if (progressBar) progressBar.style.width = progress + '%';
+
+  // smooth story transition
+  const currentStory = document.querySelector('.story.active');
+  const newStory = document.getElementById(id);
+  if (currentStory && currentStory !== newStory) {
+    currentStory.classList.remove('active');
+    setTimeout(() => {
+      newStory.classList.add('active');
+    }, 300); // delay to create fade-out + fade-in feel
+  } else {
+    newStory.classList.add('active');
+  }
 }
+</script>
+</script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 800, once: true });
+</script>
+  <script>
+// Animated counters
+const counters = document.querySelectorAll('.counter');
+const animateCounters = () => {
+  counters.forEach(counter => {
+    const updateCount = () => {
+      const target = +counter.getAttribute('data-target');
+      const count = +counter.innerText;
+      const increment = target / 40;
+      if (count < target) {
+        counter.innerText = Math.ceil(count + increment);
+        setTimeout(updateCount, 40);
+      } else {
+        counter.innerText = target;
+      }
+    };
+    updateCount();
+  });
+};
+
+// Run animation when the page loads
+window.addEventListener('load', animateCounters);
 </script>
 </body>
 </html>
