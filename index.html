@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Paulami Chakraborty — Interactive CV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#faf8f7;--muted:#6b6b6b;--accent:#3b6ea5;--accent-2:#d9b08c;--card-bg:#ffffff;--glass:rgba(255,255,255,0.7);--max-width:1100px;}
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;background:var(--bg);color:#222;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-y:scroll;scroll-behavior:smooth;}
+    .wrap{max-width:var(--max-width);margin:0 auto;padding:40px 20px;}
+    #progress{position:fixed;left:0;top:0;height:6px;background:linear-gradient(90deg,var(--accent),var(--accent-2));width:0%;z-index:9999;box-shadow:0 2px 6px rgba(0,0,0,0.08);}
+    .hero{min-height:80vh;display:flex;align-items:center;position:relative;overflow:visible;margin-bottom:40px;}
+    .hero .bg-layer{position:absolute;inset:0;background:radial-gradient(1200px 400px at 10% 10%,rgba(59,110,165,0.10),transparent 10%),radial-gradient(800px 300px at 90% 80%,rgba(217,176,140,0.07),transparent 10%);pointer-events:none;transform:translateZ(0);}
+    .hero-content{position:relative;z-index:2;display:grid;grid-template-columns:1fr 360px;gap:40px;align-items:center;width:100%;}
+    .hero-left h1{margin:0;font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,42px);letter-spacing:-0.5px;line-height:1;}
+    .hero-left p.lead{margin:14px 0 22px 0;color:var(--muted);max-width:680px;}
+    .cta-row{display:flex;gap:12px;align-items:center}
+    .btn{border:0;padding:10px 14px;border-radius:8px;font-weight:600;cursor:pointer;background:var(--accent);color:white;box-shadow:0 6px 18px rgba(59,110,165,0.12);}
+    .btn.ghost{background:transparent;color:var(--accent);border:1px solid rgba(59,110,165,0.12);box-shadow:none}
+  </style>
+</head>
+<body>
+  <div id="progress"></div>
+  <div class="wrap">
+    <header class="hero" id="hero">
+      <div class="bg-layer" data-speed="0.2"></div>
+      <div class="hero-content">
+        <div class="hero-left">
+          <h1>PAULAMI CHAKRABORTY</h1>
+          <p class="lead">Copy and coffee — banking on these two for the past 10 years. I turn complex products into stories that drive retention, adoption and brand love.</p>
+          <div class="cta-row">
+            <button class="btn" id="startJourney">🎮 Play the Journey</button>
+            <a class="btn ghost" href="#work" role="button">View Work</a>
+            <a class="btn ghost" href="assets/paulami_chakraborty.pdf" download>📄 Download CV</a>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+</body>
+</html>
