@@ -6,39 +6,116 @@
   <title>Paulami Chakraborty — Interactive CV</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{--bg:#faf8f7;--muted:#6b6b6b;--accent:#3b6ea5;--accent-2:#d9b08c;--card-bg:#ffffff;--glass:rgba(255,255,255,0.7);--max-width:1100px;}
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;background:var(--bg);color:#222;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-y:scroll;scroll-behavior:smooth;}
-    .wrap{max-width:var(--max-width);margin:0 auto;padding:40px 20px;}
-    #progress{position:fixed;left:0;top:0;height:6px;background:linear-gradient(90deg,var(--accent),var(--accent-2));width:0%;z-index:9999;box-shadow:0 2px 6px rgba(0,0,0,0.08);}
-    .hero{min-height:80vh;display:flex;align-items:center;position:relative;overflow:visible;margin-bottom:40px;}
-    .hero .bg-layer{position:absolute;inset:0;background:radial-gradient(1200px 400px at 10% 10%,rgba(59,110,165,0.10),transparent 10%),radial-gradient(800px 300px at 90% 80%,rgba(217,176,140,0.07),transparent 10%);pointer-events:none;transform:translateZ(0);}
-    .hero-content{position:relative;z-index:2;display:grid;grid-template-columns:1fr 360px;gap:40px;align-items:center;width:100%;}
-    .hero-left h1{margin:0;font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,42px);letter-spacing:-0.5px;line-height:1;}
-    .hero-left p.lead{margin:14px 0 22px 0;color:var(--muted);max-width:680px;}
-    .cta-row{display:flex;gap:12px;align-items:center}
-    .btn{border:0;padding:10px 14px;border-radius:8px;font-weight:600;cursor:pointer;background:var(--accent);color:white;box-shadow:0 6px 18px rgba(59,110,165,0.12);}
-    .btn.ghost{background:transparent;color:var(--accent);border:1px solid rgba(59,110,165,0.12);box-shadow:none}
+    body {
+      font-family: "Inter", sans-serif;
+      background: #faf8f7;
+      margin: 0;
+      color: #222;
+    }
+    header {
+      padding: 80px 20px 40px;
+      text-align: center;
+      background: linear-gradient(180deg, #ffffff 0%, #f3f4f6 100%);
+    }
+    header h1 {
+      font-family: "Playfair Display", serif;
+      font-size: 2.4rem;
+      margin: 0;
+    }
+    header p {
+      color: #6b6b6b;
+      max-width: 600px;
+      margin: 10px auto 20px;
+    }
+    section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .project-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+    .project-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .project-card .info {
+      padding: 16px;
+    }
+    .project-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.2rem;
+    }
+    .project-card p {
+      margin: 0;
+      color: #6b6b6b;
+      font-size: 0.95rem;
+    }
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: #f5f5f5;
+      color: #666;
+    }
   </style>
 </head>
+
 <body>
-  <div id="progress"></div>
-  <div class="wrap">
-    <header class="hero" id="hero">
-      <div class="bg-layer" data-speed="0.2"></div>
-      <div class="hero-content">
-        <div class="hero-left">
-          <h1>PAULAMI CHAKRABORTY</h1>
-          <p class="lead">Copy and coffee — banking on these two for the past 10 years. I turn complex products into stories that drive retention, adoption and brand love.</p>
-          <div class="cta-row">
-            <button class="btn" id="startJourney">🎮 Play the Journey</button>
-            <a class="btn ghost" href="#work" role="button">View Work</a>
-            <a class="btn ghost" href="assets/paulami_chakraborty.pdf" download>📄 Download CV</a>
-          </div>
+  <header>
+    <h1>Paulami Chakraborty</h1>
+    <p>Copy and coffee — banking on these two for the past 10 years. I turn complex products into stories that drive retention, adoption and brand love.</p>
+    <a href="assets/paulami_chakraborty.pdf" download>📄 Download CV</a>
+  </header>
+
+  <section id="work">
+    <h2>My Work</h2>
+    <div class="grid">
+      <div class="project-card">
+        <img src="assets/dream11-thumb.jpg" alt="Dream11 Campaign">
+        <div class="info">
+          <h3>Dream11 Feature Adoption Campaign</h3>
+          <p>+25% DAU uplift through product-led communication.</p>
         </div>
       </div>
-    </header>
-  </div>
+      <div class="project-card">
+        <img src="assets/zee5-thumb.jpg" alt="ZEE5 Content Strategy">
+        <div class="info">
+          <h3>ZEE5 Re-engagement Push</h3>
+          <p>Data-driven storytelling for user comeback & retention.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="assets/sportsinteractive-thumb.jpg" alt="Sports Interactive Campaign">
+        <div class="info">
+          <h3>Sports Interactive Analytics Story</h3>
+          <p>B2B content strategy for cricket analytics product.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Made with ☕ + creativity by Paulami Chakraborty</p>
+  </footer>
 </body>
 </html>
