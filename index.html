@@ -1,427 +1,254 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Paulami Chakraborty — Interactive CV</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paulami Chakraborty | Interactive Portfolio</title>
   <style>
-    #career-stories h2 {
-  font-family: "Playfair Display", serif;
-  font-size: 2.2rem;
-  text-align: center;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-.section-subtext {
-  text-align: center;
-  color: #6b6b6b;
-  margin-bottom: 40px;
-  font-style: italic;
-}
-    /* ===== GLOBAL COLORS ===== */
-body {
-  background: #F8F9FB;
-  color: #1C1C2A;
-  font-family: "Inter", sans-serif;
-  margin: 0;
-}
-      h/* ===== HEADER ===== */
-header {
-  padding: 80px 20px 60px;
-  text-align: center;
-  color: #fff;
-  background: linear-gradient(120deg, #3A0CA3, #FF7A00);
-  background-size: 200% 200%;
-  animation: gradientShift 12s ease infinite;
-}
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-header h1 {
-  font-family: "Playfair Display", serif;
-  font-size: 2.6rem;
-  margin-bottom: 10px;
-}
-header p {
-  color: rgba(255,255,255,0.9);
-  max-width: 600px;
-  margin: 10px auto 20px;
-}
-
-    section {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
-    h2 {
-      font-family: "Playfair Display", serif;
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-    }
-    .project-card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
-      overflow: hidden;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .project-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-    }
-    .project-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-    .project-card .info {
-      padding: 16px;
-    }
-    .project-card h3 {
-      margin: 0 0 8px;
-      font-size: 1.2rem;
-    }
-    .project-card p {
+    /* ---------- GLOBAL STYLES ---------- */
+    body {
       margin: 0;
-      color: #6b6b6b;
+      font-family: "Inter", sans-serif;
+      background: #0E0E11;
+      color: #F5F5F7;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: #90E000;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #FF7A00;
+    }
+
+    /* ---------- HEADER ---------- */
+    header {
+      text-align: center;
+      padding: 100px 20px 60px;
+      background: linear-gradient(135deg, #3A0CA3, #161624);
+      background-size: 200% 200%;
+      animation: gradientShift 12s ease infinite;
+      color: #fff;
+      position: relative;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header h1 {
+      font-family: "Playfair Display", serif;
+      font-size: 2.8rem;
+      margin-bottom: 12px;
+    }
+
+    header p {
+      max-width: 640px;
+      margin: 0 auto 20px;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .cv-link {
+      position: absolute;
+      left: 20px;
+      top: 20px;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ---------- CAREER MILESTONES ---------- */
+    #career-stories {
+      background: #161624;
+      padding: 80px 20px;
+      border-radius: 40px 40px 0 0;
+      margin-top: -40px;
+      box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    #career-stories::before {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 4px;
+      margin: 0 auto 30px;
+      background: linear-gradient(90deg, #3A0CA3, #90E000, #FF7A00);
+      border-radius: 2px;
+    }
+
+    #career-stories h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 2.2rem;
+      text-align: center;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .section-subtext {
+      text-align: center;
+      color: #A0A0B3;
+      font-style: italic;
+      margin-bottom: 40px;
+    }
+
+    .milestone-scroll {
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+      padding: 10px 0 40px;
+      scroll-snap-type: x mandatory;
+      justify-content: center;
+    }
+
+    .milestone {
+      flex: 0 0 auto;
+      scroll-snap-align: center;
+      background: #1F1F2E;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 18px;
+      padding: 18px 28px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      min-width: 220px;
+    }
+
+    .milestone:hover {
+      transform: translateY(-3px);
+      border-color: #90E000;
+      color: #90E000;
+    }
+
+    .milestone.active {
+      background: linear-gradient(135deg, #3A0CA3, #90E000);
+      color: #fff;
+      transform: scale(1.08);
+      box-shadow: 0 0 20px rgba(144, 224, 0, 0.4);
+    }
+
+    /* ---------- STORY SECTION ---------- */
+    .story-text {
+      max-width: 750px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .story-text h3 {
+      color: #fff;
+      font-size: 1.3rem;
+      margin-top: 10px;
+    }
+
+    .story-text p {
+      color: #A0A0B3;
+      margin-bottom: 10px;
+    }
+
+    details summary {
+      cursor: pointer;
+      color: #90E000;
+      font-weight: 600;
+      margin-top: 16px;
       font-size: 0.95rem;
     }
+
+    .story-inner img {
+      max-width: 100%;
+      border-radius: 12px;
+      display: block;
+      margin: 20px auto;
+    }
+
+    /* ---------- FOOTER ---------- */
     footer {
-  background: linear-gradient(90deg, #e7f0fa, #fcefee);
-  padding: 30px;
-  text-align: center;
-  color: #333;
-}
-    /* ===== CAREER MILESTONES SECTION ===== */
-#career-stories {
-  background: #ffffff;
-  padding: 80px 20px;
-  border-radius: 40px 40px 0 0;
-  margin-top: -40px;
-  position: relative;
-  box-shadow: 0 -10px 40px rgba(0,0,0,0.05);
-}
-#career-stories::before {
-  content: "";
-  position: absolute;
-  top: -40px;
-  left: 0;
-  width: 100%;
-  height: 6px;
-  background: linear-gradient(90deg, #3A0CA3, #90E000, #FF7A00);
-  border-radius: 40px 40px 0 0;
-}
+      background: #0E0E11;
+      text-align: center;
+      padding: 40px 20px;
+      color: #A0A0B3;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
-/* Section title */
-#career-stories h2 {
-  font-family: "Playfair Display", serif;
-  font-size: 2.2rem;
-  text-align: center;
-  color: #1C1C2A;
-  margin-bottom: 10px;
-}
-.section-subtext {
-  text-align: center;
-  color: #555;
-  margin-bottom: 40px;
-  font-style: italic;
-}
+    footer a {
+      color: #90E000;
+    }
 
-/* Horizontal scroll bar */
-/* Milestone Tabs */
-.milestone-scroll {
-  display: flex;
-  overflow-x: auto;
-  gap: 20px;
-  padding: 10px 0 30px;
-  scroll-snap-type: x mandatory;
-  justify-content: center;
-}
-.milestone {
-  flex: 0 0 auto;
-  scroll-snap-align: center;
-  background: #ffffff;
-  border: 2px solid #E5E7EB;
-  border-radius: 18px;
-  padding: 16px 28px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-  cursor: pointer;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-.milestone:hover {
-  transform: translateY(-3px);
-  border-color: #3A0CA3;
-  color: #3A0CA3;
-}
-.milestone.active {
-  background: linear-gradient(120deg, #3A0CA3, #90E000);
-  color: #fff;
-  transform: scale(1.08);
-  box-shadow: 0 8px 24px rgba(58, 12, 163, 0.25);
-}
-    /* Smooth story transitions */
-    #story-area {
-  position: relative;
-  min-height: 400px;
-}
-.story {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-}
-.story.active {
-  opacity: 1;
-  transform: translateY(0);
-  position: relative;
-}
-
-
-/* Story display */
-#story-area {
-  position: relative;
-  min-height: 400px;
-}
-.story {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-}
-.story.active {
-  opacity: 1;
-  transform: translateY(0);
-  position: relative;
-}
-.story-inner {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 20px;
-}
-.story-inner img {
-  width: 100%;
-  max-width: 450px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-.story-text {
-  flex: 1;
-  min-width: 280px;
-}
-/* Story Text */
-.story-text h3 {
-  color: #1C1C2A;
-}
-.story-text p {
-  color: #444;
-  line-height: 1.7;
-}
-details summary {
-  cursor: pointer;
-  color: #3A0CA3;
-  font-weight: 600;
-  margin-top: 12px;
-}
-
-@keyframes fadeIn {
-  from {opacity: 0; transform: translateY(20px);}
-  to {opacity: 1; transform: translateY(0);}
-}
-    /* Buttons or Links Accent (if any) */
-a, button {
-  color: #3A0CA3;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-a:hover, button:hover {
-  color: #FF7A00;
-}
-    #career-stories h2::after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 4px;
-  background: #90E000;
-  margin: 10px auto 0;
-  border-radius: 2px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .story-inner { flex-direction: column; align-items: center; }
-}
   </style>
 </head>
-
 <body>
+
   <header>
+    <a href="assets/paulami-chakraborty.pdf" class="cv-link" download>📄 Download CV</a>
     <h1>Paulami Chakraborty</h1>
-    <p>Copy and coffee — banking on these two for the past 10 years. I turn complex products into stories that drive retention, adoption and brand love.</p>
-    <a href="assets/paulami_chakraborty.pdf" download>📄 Download CV</a>
+    <p>Copy and coffee — banking on these two for the past 10 years, I’ve turned complex products into stories that drive retention, adoption, and brand love.</p>
   </header>
-  <!-- ===================== -->
-<!-- CAREER MILESTONES SECTION -->
-<!-- ===================== -->
-<section id="career-stories">
-  <h2>Career Milestones</h2>
-  <p class="section-subtext">Scroll or tap a milestone to see the story unfold.</p>
-  <div class="progress-bar">
-  <div class="progress"></div>
-</div>
 
-  <!-- Horizontal scroll of milestones -->
-  <div class="milestone-scroll">
-    <div class="milestone active" onclick="showStory('dream11', this)">
-      <h3>Dream11</h3>
-      <p>Feature-led Retention Campaign</p>
-    </div>
-    <div class="milestone" onclick="showStory('zee5', this)">
-      <h3>ZEE5</h3>
-      <p>Re-engagement Push</p>
-    </div>
-    <div class="milestone" onclick="showStory('sports', this)">
-      <h3>Sports Interactive</h3>
-      <p>Analytics Storytelling</p>
-    </div>
-  </div>
+  <section id="career-stories">
+    <h2>Career Milestones</h2>
+    <p class="section-subtext">Scroll or tap a milestone to see the story unfold.</p>
 
-  <!-- Story Display Area -->
-  <div id="story-area">
-    <div id="dream11" class="story active">
-      <div class="story-inner" data-aos="fade-up">
-        <img src="assets/dream11-full.jpg" alt="Dream11 Case Study">
-        <div class="story-text">
-          <h3>Dream11: Feature Adoption Campaign</h3>
-          <p><strong>Objective:</strong> Drive retention and DAU by promoting new in-app features.</p>
-          <p><strong>Approach:</strong> Designed a gamified communication strategy blending product copy and behavior-based triggers. Collaborated with analytics to identify feature adoption lag and repositioned copy tone from “instructional” to “competitive.”</p>
-          <p><strong>Result:</strong>
-          <span class="counter" data-target="25">0</span>% DAU uplift and higher engagement within 3 months.
-          </p>
-          <details>
-            <summary>My Thought Process 💭</summary>
-            <p>Users were skipping the new feature tutorials. By reframing the communication around “challenges” rather than “how-tos,” we tapped into the competitive spirit of Dream11 users.</p>
-          </details>
-        </div>
-      </div>
+    <div class="milestone-scroll">
+      <div class="milestone" onclick="showStory('dream11')">Dream11<br><small>Feature-led Retention Campaign</small></div>
+      <div class="milestone" onclick="showStory('zee5')">ZEE5<br><small>Re-engagement Push</small></div>
+      <div class="milestone active" onclick="showStory('sports')">Sports Interactive<br><small>Analytics Storytelling</small></div>
     </div>
 
-    <div id="zee5" class="story">
-      <div class="story-inner" data-aos="fade-up">
-        <img src="assets/zee5-full.jpg" alt="ZEE5 Campaign">
-        <div class="story-text">
-          <h3>ZEE5: Re-engagement Push</h3>
-          <p><strong>Objective:</strong> Win back dormant users and reduce churn post-content binge.</p>
-          <p><strong>Strategy:</strong> Introduced personalized “What’s Next” content journeys using micro-segmentation and trigger-based communication. Optimized app notifications for timing and tone consistency.</p>
-          <p><strong>Result:</strong>
-          <span class="counter" data-target="18">0</span>% improvement in return sessions and longer average watch durations.
-          </p>
-          <details>
-            <summary>My Thought Process 💭</summary>
-            <p>Viewership was peaking on weekends. By mapping reactivation comms to mid-week content drops, we created anticipation and consistency in user behavior.</p>
-          </details>
-        </div>
-      </div>
+    <div class="story-text" id="story-content">
+      <h3>Sports Interactive: Analytics Storytelling</h3>
+      <p><strong>Objective:</strong> Make cricket data engaging for fans, brands, and media partners.</p>
+      <p>Created real-time visual narratives using match data, powering brand sponsorships and fan engagement for major cricket tournaments.</p>
+      <img src="assets/sports-interactive.png" alt="Sports Interactive Campaign">
+      <details>
+        <summary>Read more</summary>
+        <p>Developed a content framework merging sports journalism and analytics visualization. Drove 2.3× social engagement and 30% sponsor retention uplift across campaigns.</p>
+      </details>
     </div>
-
-    <div id="sports" class="story">
-      <div class="story-inner" data-aos="fade-up">
-        <img src="assets/sportsinteractive-full.jpg" alt="Sports Interactive Campaign">
-        <div class="story-text">
-          <h3>Sports Interactive: Analytics Storytelling</h3>
-          <p><strong>Objective:</strong> Make cricket data engaging for fans, brands, and media partners.</p>
-          <p><strong>Execution:</strong> Developed visual B2B content showing insights like “Pressure Index” and “Momentum Shifts” through match storytelling. Helped product teams translate raw stats into emotion-driven narratives.</p>
-          <p><strong>Result:</strong> Boosted product visibility, led to 2 new sports partnerships, and expanded brand awareness.</p>
-          <details>
-            <summary>My Thought Process 💭</summary>
-            <p>We used storytelling principles — conflict, climax, and resolution — to make data human. The content bridged analytics with emotion, which resonated with brand partners.</p>
-          </details>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== -->
-<!-- END CAREER SECTION -->
-<!-- ===================== -->
-
+  </section>
 
   <footer>
-    <p>Made with ☕ + creativity by Paulami Chakraborty</p>
+    <p>© 2025 Paulami Chakraborty — Crafted with strategy, storytelling, and a little caffeine ☕</p>
   </footer>
- <script>
-function showStory(id, el) {
-  const milestones = document.querySelectorAll('.milestone');
-  // deactivate all milestones
-  milestones.forEach(btn => btn.classList.remove('active'));
-  // activate current tab
-  el.classList.add('active');
 
-  // update progress bar
-  const index = Array.from(milestones).indexOf(el);
-  const progress = ((index + 1) / milestones.length) * 100;
-  const progressBar = document.querySelector('.progress');
-  if (progressBar) progressBar.style.width = progress + '%';
-
-  // smooth story transition
-  const currentStory = document.querySelector('.story.active');
-  const newStory = document.getElementById(id);
-  if (currentStory && currentStory !== newStory) {
-    currentStory.classList.remove('active');
-    setTimeout(() => {
-      newStory.classList.add('active');
-    }, 300); // delay to create fade-out + fade-in feel
-  } else {
-    newStory.classList.add('active');
-  }
-}
-</script>
-</script>
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script>
-  AOS.init({ duration: 800, once: true });
-</script>
   <script>
-// Animated counters
-const counters = document.querySelectorAll('.counter');
-const animateCounters = () => {
-  counters.forEach(counter => {
-    const updateCount = () => {
-      const target = +counter.getAttribute('data-target');
-      const count = +counter.innerText;
-      const increment = target / 40;
-      if (count < target) {
-        counter.innerText = Math.ceil(count + increment);
-        setTimeout(updateCount, 40);
-      } else {
-        counter.innerText = target;
-      }
-    };
-    updateCount();
-  });
-};
+    function showStory(story) {
+      const milestones = document.querySelectorAll(".milestone");
+      milestones.forEach(m => m.classList.remove("active"));
+      event.currentTarget.classList.add("active");
 
-// Run animation when the page loads
-window.addEventListener('load', animateCounters);
-</script>
+      const content = document.getElementById("story-content");
+      if (story === "dream11") {
+        content.innerHTML = `
+          <h3>Dream11: Feature-led Retention Campaign</h3>
+          <p><strong>Objective:</strong> Reignite engagement for seasoned users via product storytelling.</p>
+          <p>Launched a content-driven in-app series simplifying new feature discovery. Resulted in a 20% increase in retention among top-tier users.</p>
+          <img src="assets/dream11-campaign.png" alt="Dream11 Campaign">
+        `;
+      } else if (story === "zee5") {
+        content.innerHTML = `
+          <h3>ZEE5: Re-engagement Push</h3>
+          <p><strong>Objective:</strong> Reduce churn and increase binge sessions.</p>
+          <p>Developed personalized campaign content based on viewing behaviour. Boosted DAU by 15% in 30 days.</p>
+          <img src="assets/zee5-campaign.png" alt="ZEE5 Campaign">
+        `;
+      } else if (story === "sports") {
+        content.innerHTML = `
+          <h3>Sports Interactive: Analytics Storytelling</h3>
+          <p><strong>Objective:</strong> Make cricket data engaging for fans, brands, and media partners.</p>
+          <p>Created real-time visual narratives using match data, powering brand sponsorships and fan engagement for major cricket tournaments.</p>
+          <img src="assets/sports-interactive.png" alt="Sports Interactive Campaign">
+          <details>
+            <summary>Read more</summary>
+            <p>Developed a content framework merging sports journalism and analytics visualization. Drove 2.3× social engagement and 30% sponsor retention uplift across campaigns.</p>
+          </details>
+        `;
+      }
+    }
+  </script>
 </body>
 </html>
