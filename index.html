@@ -3,284 +3,64 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Paulami Chakraborty | Interactive Portfolio</title>
-  <style>
-    /* ---------- GLOBAL STYLES ---------- */
-    body {
-      margin: 0;
-      font-family: "Inter", sans-serif;
-      background: #0E0E11;
-      color: #F5F5F7;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    a {
-      color: #90E000;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    a:hover {
-      color: #FF7A00;
-    }
-
-    /* ---------- HEADER ---------- */
-    header {
-      text-align: center;
-      padding: 100px 20px 60px;
-      background: linear-gradient(135deg, #3A0CA3, #161624);
-      background-size: 200% 200%;
-      animation: gradientShift 12s ease infinite;
-      color: #fff;
-      position: relative;
-    }
-
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    header h1 {
-      font-family: "Playfair Display", serif;
-      font-size: 2.8rem;
-      margin-bottom: 12px;
-    }
-
-    header p {
-      max-width: 640px;
-      margin: 0 auto 30px;
-      color: rgba(255, 255, 255, 0.85);
-    }
-
-    /* Download CV CTA */
-    .cv-link {
-      position: absolute;
-      left: 20px;
-      top: 20px;
-      background: linear-gradient(135deg, #90E000, #3A0CA3);
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 30px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      box-shadow: 0 0 15px rgba(144, 224, 0, 0.4);
-      transition: all 0.3s ease;
-    }
-    .cv-link:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px rgba(144, 224, 0, 0.7);
-      background: linear-gradient(135deg, #FF7A00, #3A0CA3);
-    }
-
-    /* ---------- CAREER MILESTONES ---------- */
-    #career-stories {
-      background: #161624;
-      padding: 80px 20px;
-      border-radius: 40px 40px 0 0;
-      margin-top: -40px;
-      box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.6);
-    }
-
-    #career-stories::before {
-      content: "";
-      display: block;
-      width: 80px;
-      height: 4px;
-      margin: 0 auto 30px;
-      background: linear-gradient(90deg, #3A0CA3, #90E000, #FF7A00);
-      border-radius: 2px;
-    }
-
-    #career-stories h2 {
-      font-family: "Playfair Display", serif;
-      font-size: 2.2rem;
-      text-align: center;
-      color: #fff;
-      margin-bottom: 10px;
-    }
-
-    .section-subtext {
-      text-align: center;
-      color: #A0A0B3;
-      font-style: italic;
-      margin-bottom: 40px;
-    }
-
-    .milestone-scroll {
-      display: flex;
-      overflow-x: auto;
-      gap: 20px;
-      padding: 10px 0 40px;
-      scroll-snap-type: x mandatory;
-      justify-content: center;
-    }
-
-    .milestone {
-      flex: 0 0 auto;
-      scroll-snap-align: center;
-      background: #1F1F2E;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 18px;
-      padding: 18px 28px;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.4s ease;
-      min-width: 220px;
-    }
-
-    .milestone:hover {
-      transform: translateY(-4px);
-      border-color: #90E000;
-      color: #90E000;
-    }
-
-    .milestone.active {
-      background: linear-gradient(135deg, #3A0CA3, #90E000);
-      color: #fff;
-      transform: scale(1.08);
-      box-shadow: 0 0 25px rgba(144, 224, 0, 0.5);
-    }
-
-    /* ---------- STORY SECTION ---------- */
-    .story-text {
-      max-width: 750px;
-      margin: 0 auto;
-      text-align: left;
-      opacity: 1;
-      transition: opacity 0.6s ease;
-    }
-    .story-text.fade-out {
-      opacity: 0;
-    }
-    .story-text.fade-in {
-      opacity: 1;
-    }
-
-    .story-text h3 {
-      color: #fff;
-      font-size: 1.3rem;
-      margin-top: 10px;
-    }
-
-    .story-text p {
-      color: #A0A0B3;
-      margin-bottom: 10px;
-    }
-
-    details summary {
-      cursor: pointer;
-      color: #90E000;
-      font-weight: 600;
-      margin-top: 16px;
-      font-size: 0.95rem;
-    }
-
-    .story-inner img {
-      max-width: 100%;
-      border-radius: 12px;
-      display: block;
-      margin: 20px auto;
-    }
-
-    /* ---------- FOOTER ---------- */
-    footer {
-      background: #0E0E11;
-      text-align: center;
-      padding: 40px 20px;
-      color: #A0A0B3;
-      font-size: 0.9rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    footer a {
-      color: #90E000;
-    }
-  </style>
+  <title>Paulami Chakraborty | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <header>
-    <a href="assets/paulami-chakraborty.pdf" class="cv-link" download>📄 Download CV</a>
-    <h1>Paulami Chakraborty</h1>
-    <p>Copy and coffee — banking on these two for the past 10 years, I’ve turned complex products into stories that drive retention, adoption, and brand love.</p>
+  <!-- HERO SECTION -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Paulami Chakraborty</h1>
+      <p class="tagline">10 years of storytelling through content, product, and data.</p>
+      <a href="assets/paulami-chakraborty.pdf" class="cta" download>📄 Download CV</a>
+    </div>
   </header>
 
-  <section id="career-stories">
-    <h2>Career Milestones</h2>
-    <p class="section-subtext">Scroll or tap a milestone to see the story unfold.</p>
-
-    <div class="milestone-scroll">
-      <div class="milestone active" onclick="showStory('dream11')">Dream11<br><small>Feature-led Retention Campaign</small></div>
-      <div class="milestone" onclick="showStory('sports')">Sports Interactive<br><small>Analytics Storytelling</small></div>
-      <div class="milestone" onclick="showStory('zee5')">ZEE5<br><small>Re-engagement Push</small></div>
+  <!-- PROJECTS -->
+  <section class="projects">
+    <div class="project" id="dream11">
+      <div class="text">
+        <h2>Dream11</h2>
+        <h3>Feature-led Retention Campaign</h3>
+        <p>Reignited engagement for seasoned users via product storytelling. The in-app content series simplified new feature discovery, driving a 20% rise in retention among top-tier users.</p>
+      </div>
+      <div class="image">
+        <img src="assets/dream11-campaign.png" alt="Dream11 Campaign">
+      </div>
     </div>
 
-    <div class="story-text" id="story-content">
-      <h3>Dream11: Feature-led Retention Campaign</h3>
-      <p><strong>Objective:</strong> Reignite engagement for seasoned users via product storytelling.</p>
-      <p>Launched a content-driven in-app series simplifying new feature discovery. Resulted in a 20% increase in retention among top-tier users.</p>
-      <img src="assets/dream11-campaign.png" alt="Dream11 Campaign">
-      <details>
-        <summary>Read more</summary>
-        <p>Developed narrative-led walkthroughs and gamified tips inside the app to increase engagement frequency and build product habit.</p>
-      </details>
+    <div class="project" id="sports">
+      <div class="text">
+        <h2>Sports Interactive</h2>
+        <h3>Analytics Storytelling</h3>
+        <p>Transformed cricket data into visual narratives for fans, brands, and media partners. The real-time match insights powered sponsorship deals and increased fan engagement by 2.3×.</p>
+      </div>
+      <div class="image">
+        <img src="assets/sports-interactive.png" alt="Sports Interactive Campaign">
+      </div>
+    </div>
+
+    <div class="project" id="zee5">
+      <div class="text">
+        <h2>ZEE5</h2>
+        <h3>Re-engagement Push</h3>
+        <p>Developed personalized campaigns based on viewing patterns — reducing churn and boosting DAU by 15% in 30 days through data-led storytelling and emotional hooks.</p>
+      </div>
+      <div class="image">
+        <img src="assets/zee5-campaign.png" alt="ZEE5 Campaign">
+      </div>
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer>
-    <p>© 2025 Paulami Chakraborty — Crafted with strategy, storytelling, and a little caffeine ☕</p>
+    <p>© 2025 Paulami Chakraborty — Crafted with strategy, storytelling & caffeine ☕</p>
   </footer>
 
-  <script>
-    function showStory(story) {
-      const milestones = document.querySelectorAll(".milestone");
-      milestones.forEach(m => m.classList.remove("active"));
-      event.currentTarget.classList.add("active");
-
-      const content = document.getElementById("story-content");
-      content.classList.add("fade-out");
-
-      setTimeout(() => {
-        if (story === "dream11") {
-          content.innerHTML = `
-            <h3>Dream11: Feature-led Retention Campaign</h3>
-            <p><strong>Objective:</strong> Reignite engagement for seasoned users via product storytelling.</p>
-            <p>Launched a content-driven in-app series simplifying new feature discovery. Resulted in a 20% increase in retention among top-tier users.</p>
-            <img src="assets/dream11-campaign.png" alt="Dream11 Campaign">
-            <details>
-              <summary>Read more</summary>
-              <p>Developed narrative-led walkthroughs and gamified tips inside the app to increase engagement frequency and build product habit.</p>
-            </details>
-          `;
-        } else if (story === "sports") {
-          content.innerHTML = `
-            <h3>Sports Interactive: Analytics Storytelling</h3>
-            <p><strong>Objective:</strong> Make cricket data engaging for fans, brands, and media partners.</p>
-            <p>Created real-time visual narratives using match data, powering brand sponsorships and fan engagement for major cricket tournaments.</p>
-            <img src="assets/sports-interactive.png" alt="Sports Interactive Campaign">
-            <details>
-              <summary>Read more</summary>
-              <p>Developed a content framework merging sports journalism and analytics visualization. Drove 2.3× social engagement and 30% sponsor retention uplift across campaigns.</p>
-            </details>
-          `;
-        } else if (story === "zee5") {
-          content.innerHTML = `
-            <h3>ZEE5: Re-engagement Push</h3>
-            <p><strong>Objective:</strong> Reduce churn and increase binge sessions.</p>
-            <p>Developed personalized campaign content based on viewing behaviour. Boosted DAU by 15% in 30 days.</p>
-            <img src="assets/zee5-campaign.png" alt="ZEE5 Campaign">
-            <details>
-              <summary>Read more</summary>
-              <p>Built data-led user journeys tied to emotional hooks from trending shows, creating loyalty loops through smart notifications.</p>
-            </details>
-          `;
-        }
-
-        content.classList.remove("fade-out");
-        content.classList.add("fade-in");
-      }, 300);
-    }
-  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
