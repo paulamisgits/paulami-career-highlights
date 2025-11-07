@@ -103,8 +103,12 @@ body {
   align-items: center;
   justify-content: space-between;
   min-height: 100vh;
-  padding: 0 5%;
+  padding: 4% 5%;
+  gap: 30px;
   position: relative;
+}
+.company:nth-child(even) {
+  flex-direction: row-reverse;
 }
 .company-card {
   flex: 1;
@@ -117,6 +121,7 @@ body {
   align-items: flex-end;
   overflow: hidden;
   color: #fff;
+  background-color: rgba(25, 25, 25, 0.7);
   box-shadow: 0 8px 40px rgba(0,0,0,0.4);
   transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
@@ -138,13 +143,14 @@ body {
   font-family: 'Playfair Display', serif;
   font-size: 2rem;
   margin-bottom: 8px;
+  color: var(--accent);
 }
 .company-card p {
   color: var(--muted);
   font-size: 1rem;
 }
 
-/* Scroll Section */
+/* SCROLL CONTAINER */
 .scroll-section {
   flex: 1;
   display: flex;
@@ -230,10 +236,6 @@ body {
 .scroll-btn:hover { background: rgba(255,255,255,0.2); }
 .scroll-btn.left { left: 0; }
 .scroll-btn.right { right: 0; }
-
-.dream11 { background: rgba(100,0,0,0.25); }
-.sportz { background: rgba(0,30,70,0.25); }
-.zee { background: rgba(50,0,60,0.25); }
 
 footer {
   text-align: center;
