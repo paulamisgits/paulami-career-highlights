@@ -1,115 +1,83 @@
-/* =======================
-   Palette / base & fonts
-   ======================= */
+/* ========= THEME & PALETTE (dark, subtle Neo-Tech) ========= */
 :root{
-  --bg:#111114;
-  --card:#151520;
-  --muted:#BFC0D6;
-  --accent1:#7360DF; /* soft lavender (replaces bright ultramarine) */
-  --accent2:#B4E169; /* muted lime */
-  --accent3:#FF7A00; /* sunset orange highlight */
-  --glass:rgba(255,255,255,0.03);
+  --bg:#0e0e11;
+  --panel:#131319;
+  --muted:#C1C3D9;
+  --accent1:#7360DF;
+  --accent2:#B4E169;
+  --glass: rgba(255,255,255,0.04);
 }
 
+/* Reset */
 *{box-sizing:border-box}
 html,body{height:100%;margin:0;background:var(--bg);color:var(--muted);-webkit-font-smoothing:antialiased}
-body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
 
-/* ---------- Progress bar ---------- */
-#progress-bar{
-  position:fixed;top:0;left:0;height:4px;width:0;z-index:9999;
-  background:linear-gradient(90deg,var(--accent1),var(--accent2),var(--accent3));
-}
+/* ---------- progress bar ---------- */
+#progress-bar{position:fixed;top:0;left:0;height:4px;width:0;z-index:1200;background:linear-gradient(90deg,var(--accent1),var(--accent2))}
 
-/* ---------- Hero ---------- */
-.hero{
-  min-height:78vh;
-  display:flex;align-items:center;justify-content:center;padding:64px 20px;
-  background:radial-gradient(800px 300px at 10% 20%, rgba(115,96,223,0.09), transparent 10%),
-             radial-gradient(700px 240px at 90% 80%, rgba(180,225,105,0.04), transparent 10%),
-             linear-gradient(135deg,#151520 0%, #0F0F12 100%);
+/* ---------- HERO ---------- */
+.hero{min-height:66vh;display:flex;align-items:center;justify-content:center;padding:56px 20px;background:
+  radial-gradient(600px 220px at 12% 24%, rgba(115,96,223,0.06), transparent 8%),
+  radial-gradient(600px 220px at 90% 80%, rgba(180,225,105,0.03), transparent 8%),
+  linear-gradient(180deg,#0b0b0e 0%, #0e0e11 100%) ;
   position:relative;
 }
-.hero-inner{max-width:1100px;width:100%;text-align:center;position:relative}
-.cv-cta{
-  position:absolute;left:24px;top:24px;
-  background:linear-gradient(135deg,var(--accent2),var(--accent1));
-  color:#071019;padding:10px 18px;border-radius:28px;font-weight:600;text-decoration:none;
-  box-shadow:0 6px 18px rgba(115,96,223,0.12);transition:transform .2s ease,box-shadow .2s ease;
-}
-.cv-cta:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(180,225,105,0.12)}
+.hero-inner{max-width:1100px;width:100%;text-align:center;position:relative;padding:20px}
+.cv-cta{position:absolute;left:20px;top:20px;background:linear-gradient(135deg,var(--accent2),var(--accent1));color:#071019;padding:10px 18px;border-radius:28px;font-weight:700;text-decoration:none;box-shadow:0 10px 30px rgba(115,96,223,0.12)}
+.cv-cta:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(180,225,105,0.12)}
+.name{font-family:"Playfair Display",serif;color:#fff;margin:0;font-size:clamp(28px,6vw,56px);letter-spacing:0.6px}
+.tagline{margin:10px auto 0;color:var(--muted);font-size:clamp(14px,2vw,18px);opacity:0.95;max-width:820px}
 
-.name{
-  font-family:"Playfair Display",serif;
-  color:#fff;
-  margin:0;
-  font-weight:600;
-  font-size:clamp(28px,6vw,56px);
-  letter-spacing:0.6px;
-  line-height:1;
-}
-.tagline{
-  margin:12px auto 0;
-  color:var(--muted);
-  font-size:clamp(14px,2.2vw,18px);
-  opacity:0.95;
-  max-width:820px;
-}
+/* ---------- COMPANIES GRID ---------- */
+.companies{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;padding:48px 6% 80px;max-width:1300px;margin:0 auto}
+.company-card{position:relative;height:320px;border-radius:16px;overflow:hidden;cursor:pointer;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);display:flex;align-items:flex-end;transition:transform .36s ease,box-shadow .36s ease}
+.company-card:focus{outline:none;box-shadow:0 8px 40px rgba(115,96,223,0.12)}
+.company-card:hover{transform:translateY(-6px);box-shadow:0 18px 50px rgba(0,0,0,0.6)}
+.card-media{position:absolute;inset:0;background-size:cover;background-position:center;filter:grayscale(0.08) contrast(0.95);transform:scale(1.03);transition:transform .7s ease}
+.company-card:hover .card-media{transform:scale(1.06)}
+.card-content{position:relative;padding:22px;background:linear-gradient(180deg, rgba(4,6,10,0.0) 10%, rgba(6,8,12,0.6) 100%);width:100%}
+.card-content h2{margin:0;color:#fff;font-size:1.4rem}
+.card-content .sub{margin:8px 0 0;color:var(--muted);font-size:0.95rem;max-width:90%}
+.cta-explore{margin-top:12px;color:var(--accent2);font-weight:700;letter-spacing:0.2px}
 
-/* ---------- Tabs ---------- */
-.tabs{
-  display:flex;
-  gap:12px;
-  justify-content:center;
-  padding:28px 16px;
-  margin-top:8px;
-}
-.tab{
-  background:var(--card);
-  color:var(--muted);
-  border:1px solid rgba(255,255,255,0.03);
-  padding:12px 20px;border-radius:14px;cursor:pointer;font-weight:600;
-  transition:all .28s cubic-bezier(.2,.9,.2,1);
-  min-width:160px;text-align:center;
-}
-.tab:hover{transform:translateY(-4px)}
-.tab.active{
-  background:linear-gradient(135deg,var(--accent1),var(--accent2));
-  color:#061018;
-  box-shadow:0 12px 30px rgba(115,96,223,0.12);
-}
+/* ---------- FULLSCREEN MODAL ---------- */
+.fs-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:1500}
+.fs-modal.open{display:flex}
+.fs-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:blur(10px) brightness(.25);transform:scale(1.03);opacity:0;transition:all .6s ease}
+/* glass pane */
+.fs-body{position:relative;z-index:2;max-width:1200px;width:100%;margin:40px;padding:28px;border-radius:14px;background:linear-gradient(180deg, rgba(17,17,20,0.45), rgba(12,12,14,0.6));backdrop-filter: blur(12px) saturate(120%);box-shadow:0 40px 120px rgba(2,4,8,0.7);opacity:0;transform:translateY(18px) scale(.99);transition:all .45s cubic-bezier(.2,.9,.2,1)}
+.fs-topbar{position:absolute;top:18px;right:28px;z-index:3}
+.fs-close{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);padding:8px 12px;border-radius:10px;cursor:pointer}
+.fs-close:hover{background:rgba(255,255,255,0.02);transform:translateY(-3px)}
 
-/* ---------- Carousels / panels ---------- */
-.carousels{padding:48px 0 120px}
-.carousel-panel{max-width:1200px;margin:0 auto 64px;padding:24px 16px;border-radius:18px}
-.carousel-panel:not(.active){display:none}
+/* header inside modal */
+.fs-header{display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
+.fs-header h2{margin:0;color:#fff;font-size:1.6rem}
+.fs-sub{margin:0;color:var(--muted)}
 
-.carousel-controls{display:flex;justify-content:flex-end;margin-bottom:12px;gap:8px}
-.arrow{
-  background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);padding:8px 12px;border-radius:10px;
-  cursor:pointer;font-size:20px;transition:all .18s ease;
-}
-.arrow:hover{transform:translateY(-3px);border-color:rgba(180,225,105,0.6);color:var(--accent2)}
+/* carousel wrapper */
+.fs-carousel-wrap{display:flex;align-items:center;gap:14px;position:relative}
+.fs-carousel{display:flex;gap:18px;overflow:hidden;padding:8px;scroll-behavior:smooth}
+.fs-arrow{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);padding:10px 14px;border-radius:10px;cursor:pointer;font-size:20px}
+.fs-arrow:hover{transform:translateY(-3px);border-color:rgba(180,225,105,0.6);color:var(--accent2)}
 
-/* horizontal scrolling row */
-.carousel{
-  display:flex;gap:20px;overflow:hidden;padding:8px;
-  scroll-behavior:smooth;
-}
-.card{
-  min-width:300px;max-width:320px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  border-radius:12px;padding:12px;border:1px solid rgba(255,255,255,0.03);
-  transition:transform .28s cubic-bezier(.2,.9,.2,1),box-shadow .28s ease;
-  flex-shrink:0;
-}
-.card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(0,0,0,0.6)}
-.card img{width:100%;height:170px;object-fit:cover;border-radius:8px;margin-bottom:12px}
-.card h4{margin:0 0 8px;color:#fff;font-size:1.03rem}
-.card p{margin:0;color:var(--muted);font-size:0.92rem;line-height:1.45}
+/* modal cards */
+.fs-card{min-width:360px;max-width:380px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:12px;border:1px solid rgba(255,255,255,0.03);flex-shrink:0}
+.fs-card img{width:100%;height:200px;object-fit:cover;border-radius:8px;margin-bottom:10px}
+.fs-card h4{margin:0 0 8px;color:#fff}
+.fs-card p{margin:0;color:var(--muted)}
 
-/* ---------- responsive ---------- */
-@media (max-width:880px){
-  .carousel{gap:12px}
-  .card{min-width:260px}
-  .cv-cta{left:14px;top:14px;padding:8px 12px}
+/* small helper */
+.fs-footer-note{margin-top:16px;color:var(--muted);text-align:center;font-size:0.92rem}
+
+/* ---------- FOOTER ---------- */
+.site-footer{text-align:center;padding:40px 10px;border-top:1px solid rgba(255,255,255,0.03);color:var(--muted);font-size:0.95rem}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:900px){
+  .company-card{height:260px}
+  .fs-card{min-width:280px;max-width:300px}
+  .fs-card img{height:160px}
+  .fs-body{margin:18px;padding:18px}
 }
