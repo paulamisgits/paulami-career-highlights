@@ -39,11 +39,17 @@ body {
   border-radius: 30px;
   text-decoration: none;
   font-weight: 700;
-  transition: background 0.3s ease, transform 0.3s ease;
+  transition: all 0.3s ease;
 }
 #site-header .cta:hover {
   background: #c5b4ff;
   transform: translateY(-3px);
+}
+#site-header.shrunk .cta {
+  background: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  padding: 6px 18px;
 }
 
 /* HERO */
@@ -64,6 +70,20 @@ body {
   margin-bottom: 20px;
   box-shadow: 0 0 60px rgba(165,142,245,0.2);
 }
+.hero-glow {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(165,142,245,0.25) 0%, rgba(12,12,12,0) 70%);
+  filter: blur(30px);
+  animation: pulseGlow 5s ease-in-out infinite alternate;
+  z-index: 1;
+}
+@keyframes pulseGlow {
+  from { opacity: 0.5; transform: scale(1); }
+  to { opacity: 0.9; transform: scale(1.15); }
+}
 .hero-name {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
@@ -75,6 +95,7 @@ body {
   margin-top: 10px;
   font-weight: 500;
 }
+.reveal { opacity: 0; transform: translateY(40px); }
 
 /* COMPANY SECTIONS */
 .company {
@@ -96,11 +117,17 @@ body {
   align-items: flex-end;
   overflow: hidden;
   color: #fff;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+.company-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 60px rgba(0,0,0,0.6);
 }
 .company-card .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.45);
+  background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0.3));
 }
 .company-card .content {
   position: relative;
@@ -117,6 +144,7 @@ body {
   font-size: 1rem;
 }
 
+/* Scroll Section */
 .scroll-section {
   flex: 1;
   display: flex;
@@ -124,6 +152,24 @@ body {
   justify-content: center;
   position: relative;
   height: 80vh;
+}
+.scroll-section::before,
+.scroll-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 60px;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+.scroll-section::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg) 0%, transparent 100%);
+}
+.scroll-section::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg) 0%, transparent 100%);
 }
 .scroll-container {
   display: flex;
@@ -138,21 +184,34 @@ body {
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.08);
   padding: 10px;
+  position: relative;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 .scroll-item img {
   width: 100%;
   border-radius: 8px;
   height: 160px;
   object-fit: cover;
+  transition: transform 0.5s ease;
 }
 .scroll-item h4 {
   margin: 10px 0 6px;
   font-size: 1rem;
   color: #fff;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 .scroll-item p {
   font-size: 0.9rem;
   color: var(--muted);
+}
+.scroll-item:hover img { transform: scale(1.05); }
+.scroll-item:hover h4 {
+  transform: translateY(-4px);
+  color: var(--accent);
+}
+.scroll-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(165,142,245,0.25);
 }
 .scroll-btn {
   position: absolute;
@@ -172,7 +231,6 @@ body {
 .scroll-btn.left { left: 0; }
 .scroll-btn.right { right: 0; }
 
-/* Background Tints */
 .dream11 { background: rgba(100,0,0,0.25); }
 .sportz { background: rgba(0,30,70,0.25); }
 .zee { background: rgba(50,0,60,0.25); }
