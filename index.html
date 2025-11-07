@@ -10,15 +10,13 @@
 </head>
 <body>
 
-  <!-- progress bar -->
+  <!-- Progress bar (top thin) -->
   <div id="progress-bar" aria-hidden="true"></div>
 
-  <!-- HEADER / HERO -->
+  <!-- HERO -->
   <header class="hero">
     <div class="hero-inner">
-      <a class="cv-cta" href="assets/paulami-chakraborty.pdf" download aria-label="Download CV (PDF)">
-        📄 Download CV
-      </a>
+      <a class="cv-cta" href="assets/paulami-chakraborty.pdf" download aria-label="Download CV (PDF)">📄 Download CV</a>
 
       <div class="hero-text">
         <h1 class="name">PAULAMI CHAKRABORTY</h1>
@@ -27,131 +25,79 @@
     </div>
   </header>
 
-  <!-- TABS / CATEGORIES -->
-  <nav class="tabs" role="tablist" aria-label="Project categories">
-    <button class="tab active" data-target="dream11" role="tab" aria-selected="true">Dream11</button>
-    <button class="tab" data-target="sports" role="tab" aria-selected="false">Sportz Interactive</button>
-    <button class="tab" data-target="zee" role="tab" aria-selected="false">Zee</button>
-  </nav>
+  <!-- COMPANY CARDS (click to open fullscreen modal) -->
+  <main class="companies">
+    <!-- Dream11 card -->
+    <article class="company-card" data-company="dream11"
+             data-gif="assets/dream11-header.gif"
+             aria-label="Open Dream11 projects - Product storytelling for the world’s largest fantasy sports app" tabindex="0">
+      <div class="card-media" aria-hidden="true" style="background-image: url('assets/dream11-header.gif')"></div>
+      <div class="card-content">
+        <h2>Dream11</h2>
+        <p class="sub">Product storytelling for the world’s largest fantasy sports app</p>
+        <p class="cta-explore" aria-hidden="true">Explore →</p>
+      </div>
+    </article>
 
-  <!-- CAROUSEL PANELS -->
-  <main class="carousels">
+    <!-- Sportz Interactive card -->
+    <article class="company-card" data-company="sports"
+             data-gif="assets/sportz-header.gif"
+             aria-label="Open Sportz Interactive projects - Hit tweets, creative social media pegs and more for top sports brands" tabindex="0">
+      <div class="card-media" aria-hidden="true" style="background-image: url('assets/sportz-header.gif')"></div>
+      <div class="card-content">
+        <h2>Sportz Interactive</h2>
+        <p class="sub">Hit tweets, creative social media pegs and more for top sports brands</p>
+        <p class="cta-explore" aria-hidden="true">Explore →</p>
+      </div>
+    </article>
 
-    <!-- DREAM11 (7 cards) -->
-    <section id="dream11" class="carousel-panel active" role="region" aria-label="Dream11 projects">
-      <div class="carousel-controls">
-        <button class="arrow left" data-carousel="dream11" aria-label="Scroll left">‹</button>
-        <button class="arrow right" data-carousel="dream11" aria-label="Scroll right">›</button>
+    <!-- Zee card -->
+    <article class="company-card" data-company="zee"
+             data-gif="assets/zee-header.gif"
+             aria-label="Open Zee projects - Out-of-the-box perspective in cricket news, interviews and articles" tabindex="0">
+      <div class="card-media" aria-hidden="true" style="background-image: url('assets/zee-header.gif')"></div>
+      <div class="card-content">
+        <h2>Zee</h2>
+        <p class="sub">Out-of-the-box perspective in cricket news, interviews and articles</p>
+        <p class="cta-explore" aria-hidden="true">Explore →</p>
       </div>
-      <div class="carousel" data-name="dream11" tabindex="0">
-        <!-- Cards: dream11-1 .. dream11-7 -->
-        <article class="card">
-          <img src="assets/dream11-1.jpg" alt="Dream11 - onboarding hero">
-          <h4>Feature Adoption Series</h4>
-          <p>In-app story tiles that increased feature discovery and nudged new flows.</p>
-        </article>
-        <article class="card">
-          <img src="assets/dream11-2.jpg" alt="Dream11 - campaign">
-          <h4>Retention Push — Season</h4>
-          <p>Timed campaign around match windows to boost DAU among active users.</p>
-        </article>
-        <article class="card">
-          <img src="assets/dream11-3.jpg" alt="Dream11 - messaging">
-          <h4>Behavioral Messaging</h4>
-          <p>Segmentation-led copy that increased click-throughs for product prompts.</p>
-        </article>
-        <article class="card">
-          <img src="assets/dream11-4.jpg" alt="Dream11 - creative">
-          <h4>Gamified Tips</h4>
-          <p>Small UX copy changes that made tutorials feel like challenges.</p>
-        </article>
-        <article class="card">
-          <img src="assets/dream11-5.jpg" alt="Dream11 - analytics">
-          <h4>Adoption Dashboard</h4>
-          <p>Visualized feature uptake to prioritize content sequencing.</p>
-        </article>
-        <article class="card">
-          <img src="assets/dream11-6.jpg" alt="Dream11 - A/B">
-          <h4>Copy A/B</h4>
-          <p>Tested tone variants — found a competitive voice performed best.</p>
-        </article>
-        <article class="card">
-          <img src="assets/dream11-7.jpg" alt="Dream11 - outcome">
-          <h4>Impact & Rollout</h4>
-          <p>20% retention uplift for target cohort over 90 days.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- SPORTZ INTERACTIVE (5 cards) -->
-    <section id="sports" class="carousel-panel" role="region" aria-label="Sportz Interactive projects">
-      <div class="carousel-controls">
-        <button class="arrow left" data-carousel="sports" aria-label="Scroll left">‹</button>
-        <button class="arrow right" data-carousel="sports" aria-label="Scroll right">›</button>
-      </div>
-      <div class="carousel" data-name="sports" tabindex="0">
-        <article class="card">
-          <img src="assets/sports-1.jpg" alt="Sports - pressure index">
-          <h4>Pressure Index Visuals</h4>
-          <p>Made match-momentum tangible with simple visual markers.</p>
-        </article>
-        <article class="card">
-          <img src="assets/sports-2.jpg" alt="Sports - sponsor">
-          <h4>Brand Story Templates</h4>
-          <p>On-demand assets for sponsor activations and social posts.</p>
-        </article>
-        <article class="card">
-          <img src="assets/sports-3.jpg" alt="Sports - analytics">
-          <h4>Real-time Narratives</h4>
-          <p>Short match-story snippets that boosted live engagement.</p>
-        </article>
-        <article class="card">
-          <img src="assets/sports-4.jpg" alt="Sports - product">
-          <h4>Product-Led Copy</h4>
-          <p>Microcopy for overlays and tooltips that improved feature usage.</p>
-        </article>
-        <article class="card">
-          <img src="assets/sports-5.jpg" alt="Sports - case">
-          <h4>Partner Case Study</h4>
-          <p>Case material that helped secure two enterprise clients.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- ZEE (3 cards) -->
-    <section id="zee" class="carousel-panel" role="region" aria-label="Zee projects">
-      <div class="carousel-controls">
-        <button class="arrow left" data-carousel="zee" aria-label="Scroll left">‹</button>
-        <button class="arrow right" data-carousel="zee" aria-label="Scroll right">›</button>
-      </div>
-      <div class="carousel" data-name="zee" tabindex="0">
-        <article class="card">
-          <img src="assets/zee-1.jpg" alt="Zee - reengage hero">
-          <h4>What’s Next Journeys</h4>
-          <p>Triggered pushes reduced churn during content droughts.</p>
-        </article>
-        <article class="card">
-          <img src="assets/zee-2.jpg" alt="Zee - microseg">
-          <h4>Micro-seg Messaging</h4>
-          <p>Content hooks tailored to viewing patterns and mood.</p>
-        </article>
-        <article class="card">
-          <img src="assets/zee-3.jpg" alt="Zee - results">
-          <h4>Retention Spike</h4>
-          <p>15% lift in DAU over a 30-day reactivation sprint.</p>
-        </article>
-      </div>
-    </section>
-
+    </article>
   </main>
 
-  <footer>
+  <!-- FULLSCREEN MODAL (single modal reused for all companies) -->
+  <div id="fs-modal" class="fs-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="fs-bg" id="fs-bg" aria-hidden="true"></div> <!-- background GIF (set by JS) -->
+
+    <div class="fs-topbar">
+      <button id="fs-close" class="fs-close" aria-label="Close (Esc)">✕</button>
+    </div>
+
+    <div class="fs-body">
+      <div class="fs-header">
+        <h2 id="fs-title">Company</h2>
+        <p id="fs-tagline" class="fs-sub">Tagline</p>
+      </div>
+
+      <div class="fs-carousel-wrap">
+        <button class="fs-arrow left" id="fs-left" aria-label="Previous">‹</button>
+        <div class="fs-carousel" id="fs-carousel" tabindex="0" aria-live="polite" role="list"></div>
+        <button class="fs-arrow right" id="fs-right" aria-label="Next">›</button>
+      </div>
+
+      <div class="fs-footer-note">
+        <small>Use ← → keys to navigate • Esc to close</small>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
     <p>© 2025 Paulami Chakraborty — crafted with strategy, storytelling & coffee ☕</p>
   </footer>
 
   <!-- GSAP + ScrollTrigger -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
   <script src="script.js"></script>
 </body>
 </html>
