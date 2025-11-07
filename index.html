@@ -1,103 +1,83 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Paulami Chakraborty — Interactive Portfolio</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paulami Chakraborty | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- Progress bar (top thin) -->
-  <div id="progress-bar" aria-hidden="true"></div>
-
-  <!-- HERO -->
-  <header class="hero">
-    <div class="hero-inner">
-      <a class="cv-cta" href="assets/paulami-chakraborty.pdf" download aria-label="Download CV (PDF)">📄 Download CV</a>
-
-      <div class="hero-text">
-        <h1 class="name">PAULAMI CHAKRABORTY</h1>
-        <p class="tagline">Content, creativity and coffee | 10 years and counting</p>
-      </div>
-    </div>
+  <!-- Sticky Header -->
+  <header id="site-header">
+    <h1 class="logo">Paulami Chakraborty</h1>
+    <a href="assets/paulami-chakraborty.pdf" class="cta" download>Download CV</a>
   </header>
 
-  <!-- COMPANY CARDS (click to open fullscreen modal) -->
-  <main class="companies">
-    <!-- Dream11 card -->
-    <article class="company-card" data-company="dream11"
-             data-gif="assets/dream11-header.gif"
-             aria-label="Open Dream11 projects - Product storytelling for the world’s largest fantasy sports app" tabindex="0">
-      <div class="card-media" aria-hidden="true" style="background-image: url('assets/dream11-header.gif')"></div>
-      <div class="card-content">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <img src="assets/paulami.jpg" alt="Paulami Chakraborty" class="hero-image">
+      <h1 class="hero-name">Paulami Chakraborty</h1>
+      <p class="hero-tagline">Content, creativity and coffee | 10 years and counting</p>
+    </div>
+  </section>
+
+  <!-- Dream11 Section -->
+  <section class="company dream11">
+    <div class="company-card left" style="background-image:url('assets/dream11-header.gif')">
+      <div class="overlay"></div>
+      <div class="content">
         <h2>Dream11</h2>
-        <p class="sub">Product storytelling for the world’s largest fantasy sports app</p>
-        <p class="cta-explore" aria-hidden="true">Explore →</p>
+        <p>Product storytelling for the world’s largest fantasy sports app</p>
       </div>
-    </article>
+    </div>
+    <div class="scroll-section right">
+      <button class="scroll-btn left" data-target="dream11">&#10094;</button>
+      <div class="scroll-container" id="dream11-scroll"></div>
+      <button class="scroll-btn right" data-target="dream11">&#10095;</button>
+    </div>
+  </section>
 
-    <!-- Sportz Interactive card -->
-    <article class="company-card" data-company="sports"
-             data-gif="assets/sportz-header.gif"
-             aria-label="Open Sportz Interactive projects - Hit tweets, creative social media pegs and more for top sports brands" tabindex="0">
-      <div class="card-media" aria-hidden="true" style="background-image: url('assets/sportz-header.gif')"></div>
-      <div class="card-content">
+  <!-- Sportz Interactive Section -->
+  <section class="company sportz">
+    <div class="scroll-section left">
+      <button class="scroll-btn left" data-target="sports">&#10094;</button>
+      <div class="scroll-container" id="sports-scroll"></div>
+      <button class="scroll-btn right" data-target="sports">&#10095;</button>
+    </div>
+    <div class="company-card right" style="background-image:url('assets/sportz-header.gif')">
+      <div class="overlay"></div>
+      <div class="content">
         <h2>Sportz Interactive</h2>
-        <p class="sub">Hit tweets, creative social media pegs and more for top sports brands</p>
-        <p class="cta-explore" aria-hidden="true">Explore →</p>
+        <p>Hit tweets, creative social media pegs and more for top sports brands</p>
       </div>
-    </article>
+    </div>
+  </section>
 
-    <!-- Zee card -->
-    <article class="company-card" data-company="zee"
-             data-gif="assets/zee-header.gif"
-             aria-label="Open Zee projects - Out-of-the-box perspective in cricket news, interviews and articles" tabindex="0">
-      <div class="card-media" aria-hidden="true" style="background-image: url('assets/zee-header.gif')"></div>
-      <div class="card-content">
+  <!-- Zee Section -->
+  <section class="company zee">
+    <div class="company-card left" style="background-image:url('assets/zee-header.gif')">
+      <div class="overlay"></div>
+      <div class="content">
         <h2>Zee</h2>
-        <p class="sub">Out-of-the-box perspective in cricket news, interviews and articles</p>
-        <p class="cta-explore" aria-hidden="true">Explore →</p>
-      </div>
-    </article>
-  </main>
-
-  <!-- FULLSCREEN MODAL (single modal reused for all companies) -->
-  <div id="fs-modal" class="fs-modal" aria-hidden="true" role="dialog" aria-modal="true">
-    <div class="fs-bg" id="fs-bg" aria-hidden="true"></div> <!-- background GIF (set by JS) -->
-
-    <div class="fs-topbar">
-      <button id="fs-close" class="fs-close" aria-label="Close (Esc)">✕</button>
-    </div>
-
-    <div class="fs-body">
-      <div class="fs-header">
-        <h2 id="fs-title">Company</h2>
-        <p id="fs-tagline" class="fs-sub">Tagline</p>
-      </div>
-
-      <div class="fs-carousel-wrap">
-        <button class="fs-arrow left" id="fs-left" aria-label="Previous">‹</button>
-        <div class="fs-carousel" id="fs-carousel" tabindex="0" aria-live="polite" role="list"></div>
-        <button class="fs-arrow right" id="fs-right" aria-label="Next">›</button>
-      </div>
-
-      <div class="fs-footer-note">
-        <small>Use ← → keys to navigate • Esc to close</small>
+        <p>Out-of-the-box perspective in cricket news, interviews and articles</p>
       </div>
     </div>
-  </div>
+    <div class="scroll-section right">
+      <button class="scroll-btn left" data-target="zee">&#10094;</button>
+      <div class="scroll-container" id="zee-scroll"></div>
+      <button class="scroll-btn right" data-target="zee">&#10095;</button>
+    </div>
+  </section>
 
-  <footer class="site-footer">
-    <p>© 2025 Paulami Chakraborty — crafted with strategy, storytelling & coffee ☕</p>
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Paulami Chakraborty — Crafted with storytelling, design & coffee ☕</p>
   </footer>
 
-  <!-- GSAP + ScrollTrigger -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
   <script src="script.js"></script>
 </body>
 </html>
